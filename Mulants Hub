@@ -1,0 +1,140 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local UIGradient = Instance.new("UIGradient")
+local TpTool = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local InfYield = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local Btools = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = false
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.Position = UDim2.new(0.208801225, 0, 0.246722296, 0)
+Frame.Size = UDim2.new(0, 608, 0, 324)
+Frame.Active = true
+Frame.Draggable = true
+
+UICorner.Parent = Frame
+
+UIGradient.Color = ColorSequence.new{ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 0)), ColorSequenceKeypoint.new(1.00, Color3.fromRGB(99, 4, 4))}
+UIGradient.Parent = Frame
+
+TpTool.Name = "TpTool"
+TpTool.Parent = Frame
+TpTool.BackgroundColor3 = Color3.fromRGB(32, 254, 106)
+TpTool.BorderSizePixel = 0
+TpTool.Position = UDim2.new(0.163200423, 0, 0.448209643, 0)
+TpTool.Size = UDim2.new(0, 142, 0, 71)
+TpTool.Font = Enum.Font.SourceSansBold
+TpTool.Text = "TpTool"
+TpTool.TextColor3 = Color3.fromRGB(0, 0, 0)
+TpTool.TextScaled = true
+TpTool.TextSize = 14.000
+TpTool.TextWrapped = true
+TpTool.MouseButton1Down:connect(function()
+	mouse = game.Players.LocalPlayer:GetMouse()
+	tool = Instance.new("Tool")
+	tool.RequiresHandle = false
+	tool.Name = "Click Teleport"
+	tool.Activated:connect(function()
+		local pos = mouse.Hit+Vector3.new(0,2.5,0)
+		pos = CFrame.new(pos.X,pos.Y,pos.Z)
+		game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+	end)
+	tool.Parent = game.Players.LocalPlayer.Backpack
+
+end)
+
+UICorner_2.Parent = TpTool
+
+InfYield.Name = "InfYield"
+InfYield.Parent = Frame
+InfYield.BackgroundColor3 = Color3.fromRGB(32, 254, 106)
+InfYield.BorderSizePixel = 0
+InfYield.Position = UDim2.new(0.673537433, 0, 0.448209643, 0)
+InfYield.Size = UDim2.new(0, 142, 0, 71)
+InfYield.Font = Enum.Font.SourceSansBold
+InfYield.Text = "Infinte Yield"
+InfYield.TextColor3 = Color3.fromRGB(0, 0, 0)
+InfYield.TextScaled = true
+InfYield.TextSize = 14.000
+InfYield.TextWrapped = true
+InfYield.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+end)
+
+
+
+UICorner_3.Parent = InfYield
+
+Btools.Name = "Btools"
+Btools.Parent = Frame
+Btools.BackgroundColor3 = Color3.fromRGB(32, 254, 106)
+Btools.BorderSizePixel = 0
+Btools.Position = UDim2.new(0.41491878, 0, 0.448209643, 0)
+Btools.Size = UDim2.new(0, 142, 0, 71)
+Btools.Font = Enum.Font.SourceSansBold
+Btools.Text = "Btools"
+Btools.TextColor3 = Color3.fromRGB(0, 0, 0)
+Btools.TextScaled = true
+Btools.TextSize = 14.000
+Btools.TextWrapped = true
+Btools.MouseButton1Down:connect(function()
+	Instance.new("HopperBin", game.Players.LocalPlayer.Backpack).BinType = 4
+	game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 20
+end)
+
+UICorner_4.Parent = Btools
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.BorderSizePixel = 5
+TextLabel.Position = UDim2.new(0.103603564, 0, -0.110384904, 0)
+TextLabel.Size = UDim2.new(0, 502, 0, 145)
+TextLabel.Font = Enum.Font.SourceSansBold
+TextLabel.Text = "South London 2"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+
+TextLabel_2.Parent = Frame
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(0.256257892, 0, 0.294744849, 0)
+TextLabel_2.Size = UDim2.new(0, 340, 0, 50)
+TextLabel_2.Font = Enum.Font.SourceSansBold
+TextLabel_2.Text = "Click to activate"
+TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextWrapped = true
+
+TextLabel_3.Parent = ScreenGui
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.Position = UDim2.new(0.208801225, 0, 0.536352813, 0)
+TextLabel_3.Size = UDim2.new(0, 607, 0, 81)
+TextLabel_3.Font = Enum.Font.SourceSansBold
+TextLabel_3.Text = "Mulant Hub coming out Soon."
+TextLabel_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextWrapped = true
